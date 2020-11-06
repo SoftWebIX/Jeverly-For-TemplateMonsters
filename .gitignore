@@ -1,0 +1,14 @@
+# Ignore everything
+node_modules/*
+uploads
+upgrade
+.idea
+mu-plugins
+plugins/*
+themes/*
+ai1wm-backups
+languages
+
+# But not these files...
+!.gitignore
+!themes/jeverly
