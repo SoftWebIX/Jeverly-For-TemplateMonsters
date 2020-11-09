@@ -1,0 +1,1850 @@
+@import 'mixins', 'colors', 'typography'
+
+/************************************************************************
+ * TABLE OF CONTENTS:
+ *
+ * 1.0 - BASE;
+ * 2.0 - ELEMENTS;
+ * 3.0 - HEADER;
+ * 4.0 - FOOTER;
+ ************************************************************************/
+
+/************************************************************************
+ * 1.0 - BASE;
+ **/
+
+*,
+*:before,
+*:after
+    box-sizing: inherit
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td
+    border: 0
+    font-family: inherit
+    font-size: 100%
+    font-style: inherit
+    font-weight: inherit
+    margin: 0
+    outline: 0
+    padding: 0
+    vertical-align: baseline
+
+html
+    overflow-x: hidden
+    overflow-y: scroll
+    -webkit-text-size-adjust: 100%
+    -ms-text-size-adjust: 100%
+    box-sizing: border-box
+
+    body
+        overflow-x: hidden
+        margin: 0
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary
+    display: block
+
+audio
+    &:not([controls])
+        display: none
+        height: 0
+
+audio,
+canvas,
+progress,
+video
+    display: inline-block
+    vertical-align: baseline
+
+[hidden],
+template
+    display: none
+
+ol,
+ul
+    list-style: none
+
+table
+    border-collapse: separate
+    border-spacing: 0
+
+caption,
+th,
+td
+    font-weight: normal
+    text-align: left
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after
+    content: ""
+
+blockquote,
+q
+    quotes: "" ""
+
+a
+    background-color: transparent
+    &:focus
+        outline: thin dotted
+    img
+        border: 0
+
+a:hover,
+a:active
+    outline: 0
+
+img
+    border: 0
+
+svg
+    &:not(:root)
+        overflow: hidden
+
+button,
+input,
+optgroup,
+select,
+textarea
+    color: inherit
+    font: inherit
+    line-height: inherit
+    margin: 0
+
+button
+    overflow: visible
+
+button,
+select
+    text-transform: none
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"]
+    -webkit-appearance: button
+    cursor: pointer
+
+button[disabled],
+html input[disabled]
+    cursor: default
+
+button::-moz-focus-inner,
+input::-moz-focus-inner
+    border: 0
+    padding: 0
+
+input
+    line-height: normal
+
+input[type="checkbox"],
+input[type="radio"]
+    box-sizing: border-box
+    padding: 0
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button
+    height: auto
+
+input[type="search"]
+    -webkit-appearance: textfield
+    box-sizing: border-box
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration
+    -webkit-appearance: none
+
+fieldset
+    border: 1px solid #c0c0c0
+    margin: 0 2px
+    padding: 0.35em 0.625em 0.75em
+
+legend
+    border: 0
+    padding: 0
+    color: inherit
+    display: table
+    max-width: 100%
+
+textarea
+    overflow: auto
+
+optgroup
+    font-weight: bold
+
+a
+    font-weight: 700
+    font-size: 14px
+    color: $c_primary
+    text-decoration: none
+    transition: all .15s ease-in-out
+
+    &:focus,
+    &:hover,
+    &:active
+        color: $c_main
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+    font-weight: $f_weight_primary
+    font-family: $primary_font
+    color: $c-dark
+    line-height: normal
+
+small
+    font-family: $second_font
+    font-weight: $f_weight_primary
+    font-style: italic
+    font-size: 12px
+
+h1
+    font-size: $h1
+    margin-bottom: 27px
+
+h2
+    font-size: $h2
+    margin-bottom: 25px
+
+h3
+    font-size: $h3
+    margin-bottom: 26px
+
+h4
+    font-size: $h4
+    margin-bottom: 21px
+
+h5
+    font-size: $h5
+    margin-bottom: 17px
+
+h6
+    font-size: $h6
+    margin-bottom: 13px
+
+p, span, div
+    font-weight: $f_weight_primary
+    font-family: $primary_font
+    letter-spacing: $f_spacing_primary
+    font-size: $body_size
+    color: $c_primary
+    line-height: 22px
+
+b, strong
+    font-weight: bold
+    color: $c_dark
+
+input:focus,
+textarea:focus
+    outline: 0
+
+hr
+    background-color: $c_decor
+    border: 0
+    height: 1px
+    margin-top: 4px
+    margin-bottom: 0
+
+
+.hide-text
+    clip: rect(1px, 1px, 1px, 1px)
+    height: 1px
+    overflow: hidden
+    position: absolute !important
+    width: 1px
+
+.overflow-hidden
+    overflow: hidden
+
+::-webkit-file-upload-button
+    -webkit-appearance: button
+    font: inherit
+
+[type="search"]::-webkit-search-decoration
+    -webkit-appearance: none
+
+details
+    display: block
+
+summary
+    display: list-item
+
+template
+    display: none
+
+[hidden]
+    display: none
+
+p
+    margin-bottom: 1.5em
+
+dfn,
+cite,
+em,
+i
+    font-style: italic
+
+address
+    margin: 0 0 1.5em
+
+figure
+    margin: 1em 0
+
+table
+    margin: 0 0 1.5em
+    width: 100%
+
+.sticky
+    display: block
+
+.updated:not(.published)
+    display: none
+
+.page-content,
+.entry-content,
+.entry-summary
+    margin: 1.5em 0 0
+
+
+.page-links
+    clear: both
+    margin: 0 0 1.5em
+
+.comment-content a
+    word-wrap: break-word
+
+.widget
+    margin: 0 0 1.5em
+
+.widget select
+    max-width: 100%
+
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley
+    border: none
+    margin-bottom: 0
+    margin-top: 0
+    padding: 0
+
+.custom-logo-link
+    display: inline-block
+
+
+/**
+ * FINISH BASE CONTENTS;
+ **********************************************************************/
+
+/************************************************************************
+ * 2.0 - ELEMENTS;
+ **/
+
+.jeverly-container
+    width: 100%
+    padding-right: 15px
+    padding-left: 15px
+    margin-right: auto
+    margin-left: auto
+
+    @include sm
+        max-width: 100%
+
+    @include md
+        max-width: 960px
+
+    @include lg
+        max-width: 1035px
+
+.javerly-frontier
+    display: flex
+    flex-wrap: wrap
+
+abbr[title]
+    border-bottom: none
+    text-decoration: underline
+    text-decoration: underline dotted
+
+code,
+kbd,
+samp
+    font-family: monospace, monospace
+    font-size: 1em
+
+sub,
+sup
+    font-size: 75%
+    line-height: 0
+    position: relative
+    vertical-align: baseline
+
+
+sub
+    bottom: -0.25em
+
+sup
+    top: -0.5em
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring
+    outline: 1px dotted ButtonText
+
+fieldset
+    padding: 0.35em 0.75em 0.625em
+
+abbr,
+acronym
+    border-bottom: 1px dotted #666
+    cursor: help
+
+mark,
+ins
+    background: #fff9c0
+    text-decoration: none
+
+big
+    font-size: 125%
+
+embed,
+iframe,
+object
+    max-width: 100%
+
+img
+    height: auto
+    max-width: 100%
+
+#primary[tabindex="-1"]:focus
+    outline: 0
+
+.screen-reader-text
+    border: 0
+    clip: rect(1px, 1px, 1px, 1px)
+    clip-path: inset(50%)
+    height: 1px
+    margin: -1px
+    overflow: hidden
+    padding: 0
+    position: absolute !important
+    width: 1px
+    word-wrap: normal !important
+
+
+.screen-reader-text:focus
+    background-color: #f1f1f1
+    border-radius: 3px
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6)
+    clip: auto !important
+    clip-path: none
+    color: #21759b
+    display: block
+    font-size: 0.875rem
+    font-weight: 700
+    height: auto
+    left: 5px
+    line-height: normal
+    padding: 15px 23px 14px
+    text-decoration: none
+    top: 5px
+    width: auto
+    z-index: 100000
+
+
+.clear::before, .clear::after,
+.site-wrapper::before,
+.site-wrapper::after,
+.site-header::before,
+.site-header::after,
+.site-branding::before,
+.site-branding::after,
+.main-navigation::before,
+.main-navigation::after,
+.navigation::before,
+.navigation::after,
+.nav-links::before,
+.nav-links::after,
+.site-content::before,
+.site-content::after,
+.site-main::before,
+.site-main::after,
+.sidebar::before,
+.sidebar::after,
+.hentry::before,
+.hentry::after,
+.post-content-wrapper-single::before,
+.post-content-wrapper-single::after,
+.entry-data-wrapper-single::before,
+.entry-data-wrapper-single::after,
+.entry-content::before,
+.entry-content::after,
+.widget::before,
+.widget::after,
+.site-footer::before,
+.site-footer::after,
+.site-info::before,
+.site-info::after,
+.site-info-inside::before,
+.site-info-inside::after,
+.comment-body::before,
+.comment-body::after,
+.comment-meta::before,
+.comment-meta::after,
+.comment-content::before,
+.comment-content::after
+    content: " "
+    display: table
+
+
+.clear::after,
+.site-wrapper::after,
+.site-header::after,
+.site-branding::after,
+.main-navigation::after,
+.navigation::after,
+.nav-links::after,
+.site-content::after,
+.site-main::after,
+.sidebar::after,
+.hentry::after,
+.post-content-wrapper-single::after,
+.entry-data-wrapper-single::after,
+.entry-content::after,
+.widget::after,
+.site-footer::after,
+.site-info::after,
+.site-info-inside::after,
+.comment-body::after,
+.comment-meta::after,
+.comment-content::after
+    clear: both
+
+/**
+ * FINISH ELEMENTS;
+ **********************************************************************/
+
+/************************************************************************
+ * 3.0 - HEADER;
+ **/
+
+.site-primary-menu-responsive
+    @include sm
+        display: none
+
+    position: relative
+    display: none
+    height: calc(100vh - 80.77px)
+    max-height: calc(100vh - 80.77px)
+    overflow-y: auto
+    top: -4px
+    width: calc(100% + 30%)
+    background: $c_main
+    margin-right: -15px
+    margin-left: -15px
+
+    .site-primary-menu-responsive-nav-navigation
+        padding: 38px 51px
+
+        ul
+            & > li + li
+                margin-top: 5px
+
+            & > li
+                padding: 7px 14px
+
+            li
+                & > a
+                    color: $c_light
+                    font-size: 22px
+                    letter-spacing: 5.87px
+                    font-weight: $f_weight_primary
+
+            ul
+                li:first-child
+                    margin-top: 20px
+
+                li:last-child
+                    margin-bottom: 20px
+
+                li
+                    & > a
+                        font-size: 17px
+
+                ul
+                    li:first-child,
+                    li:last-child
+                        margin-top: 10px
+                        margin-bottom: 0
+
+
+.site-header
+    display: flex
+    position: relative
+    justify-content: center
+    align-items: center
+    width: 100%
+
+    @include sm-m
+        margin-top: 3.44rem
+        padding-bottom: 3.25rem
+
+    &::before
+        content: ''
+        position: absolute
+        bottom: 0px
+        width: 100%
+        height: 4px
+        border-width: 1px 0px 1px 0px
+        border-style: double
+        border-color: $c_decor
+
+    .site-branding
+        display: flex
+        align-items: center
+
+    .main-navigation
+        display: flex
+        position: relative
+        justify-content: center
+        width: 100%
+
+        .toggle-menu-wrapper
+            display: none
+
+            @include sm-m
+                display: block
+
+            .menu-toggle
+                border: none
+                outline: none
+                padding: 0
+                width: 2em
+                height: 2em
+                margin: 0
+                background: transparent
+
+                .lines
+                    background-color: $c_primary
+                    width: 100%
+                    height: 3px
+                    margin: 5px 0
+                    transition: all .15s ease-in-out
+
+                &.menu-toggle-close
+                    .line-top
+                        transform: translateY(200%) rotate(45deg)
+
+                    .line-mid
+                        opacity: 0
+
+                    .line-bottom
+                        transform: translateY(-325%) rotate(135deg)
+
+        @include md-m
+            justify-content: flex-end
+
+
+        ul ul
+            position: absolute
+            visibility: hidden
+            top: 100%
+            opacity: 0
+            transition-property: opacity, visibility
+            transition-duration: 0.2s
+            transition-delay: 0.2s
+
+        ul .menu-item-has-children:hover > ul
+            visibility: visible
+            opacity: 1
+
+        ul ul .menu-item-has-children:hover > ul
+            visibility: visible
+            opacity: 1
+
+        .menu
+            display: flex
+            width: 100%
+
+            @include sm-m
+                display: none
+
+            & > li + li
+                margin-left: 1.75rem
+
+            & > li
+                margin-top: 3.44rem
+                padding-bottom: 3.25rem
+
+            li
+                position: relative
+
+                &.menu-item-has-children
+                    &:hover
+                        & > a
+                            color: $c_main
+
+                            &::after
+                                color: $c_main
+                                opacity: 1
+
+                    & > a
+                        &::after
+                            content: '\f078'
+                            display: inline-block
+                            margin-left: 5px
+                            font-family: Font Awesome\ 5 Free
+                            font-size: inherit
+                            text-rendering: auto
+                            -webkit-font-smoothing: antialiased
+                            -moz-osx-font-smoothing: grayscale
+                            color: $c_primary
+                            opacity: .5
+                            transition: all .15s ease-in-out
+
+                .sub-menu
+                    position: absolute
+                    margin-top: -30px
+                    visibility: hidden
+                    opacity: 0
+                    padding: 25px 0px
+                    background: $c_main
+                    z-index: 1
+
+                    @include md-m
+                        right: 0
+
+                    .sub-menu
+                        left: calc(100% + 10px)
+                        margin-top: 0px
+                        top: calc(100% - 25px)
+                        z-index: -1
+
+                        &.left-position
+                            left: calc(-100% - 15px)
+                            right: 0
+                            width: 100%
+
+                    li
+                        padding: 8px 17px
+
+                        &.menu-item-has-children
+                            &:hover
+                                & > a
+                                    color: $c_light
+
+                                    &::after
+                                        color: $c_primary
+                                        transform: rotate(-90deg)
+
+                            & > a
+                                &::after
+                                    position: absolute
+                                    margin-left: unset
+                                    right: 0
+
+                        a
+                            font-size: 11px
+                            letter-spacing: $f_spacing_second
+                            color: $c_light
+                            width: 100%
+                            min-width: 182px
+                            position: relative
+                            display: block
+
+                            &:hover,
+                            &:focus,
+                            &:active
+                                color: $c_light
+
+/**
+ * FINISH HEADER;
+ **********************************************************************/
+
+/************************************************************************
+ * 4.0 - BLOCK ELEMENTS;
+ **/
+
+.main
+    display: block
+
+.site-main
+    width: 100%
+
+    &.fullwidth
+        .page
+            &.hentry
+                position: relative
+                width: 100%
+                max-width: 100%
+                margin: 47px auto
+
+    p, div, span
+        font-family: $second_font
+        font-size: 15px
+        letter-spacing: 0.5px
+        line-height: 22px
+        color: $c_primary
+        font-weight: $f_weight_primary
+
+    .page
+        &.hentry
+            position: relative
+            width: 100%
+            max-width: 675px
+            margin: 47px auto
+
+            p
+                margin-bottom: 1rem
+
+    .navigation,
+    .comments-area,
+    .post
+        position: relative
+        width: 100%
+        max-width: 675px
+        margin: 47px auto
+
+    .post
+        .posted-on,
+        .byline
+            position: relative
+            top: 10px
+            font-family: $second_font
+            font-weight: $f_weight_primary
+            font-size: 14px
+            font-style: italic
+            letter-spacing: 0.47px
+            color: $c_primary
+            line-height: 22px
+
+            span, time, a
+                font-family: inherit
+                font-weight: inherit
+                font-size: inherit
+                font-style: inherit
+                letter-spacing: inherit
+                color: inherit
+                line-height: inherit
+
+        &:first-child
+            .site-home-post
+                position: relative
+                display: block
+                padding-top: 20px
+
+                .site-home-content
+                    padding-left: 45px
+                    padding-bottom: 53px
+                    background-color: rgba( rgb(245, 244, 242), .65 )
+
+        .site-home-post
+            position: relative
+            display: block
+            padding-top: 20px
+            padding-bottom: 50px
+
+            .entry-header
+                padding-top: 27px
+
+                .entry-title
+                    margin-bottom: 10px
+                    text-align: left
+
+                    a
+                        font-size: inherit
+                        letter-spacing: inherit
+                        line-height: inherit
+                        font-weight: inherit
+                        color: inherit
+
+                        &:hover
+                            text-decoration: underline
+
+            .entry-info-post
+                display: flex
+                justify-content: space-between
+
+                a
+                    padding: 18px 45px
+                    background: $c_main
+                    color: $c_light
+                    font-size: 11px
+                    line-height: initial
+                    text-transform: uppercase
+                    font-weight: $f_weight_primary
+                    border: 1px solid transparent
+
+                    &:hover
+                        border-color: $c_main
+                        color: $c_main
+                        background: transparent
+
+                .comment-counter
+                    padding: 3px 8px
+                    height: max-content
+                    border: 1px solid rgba( $ca_primary, .1 )
+                    font-family: $second_font
+                    font-weight: $f_weight_primary
+                    font-size: 12px
+                    letter-spacing: normal
+                    color: rgba( $ca_primary, .8 )
+
+                    i
+                        margin-left: 3px
+                        font-size: 10px
+                        color: $c_icon
+                        opacity: .15
+
+
+            &::before
+                content: ''
+                position: absolute
+                bottom: 0
+                width: 100%
+                height: 4px
+                border-width: 1px 0 1px 0
+                border-style: double
+                border-color: $c_decor
+
+        .entry-header-decor
+            position: relative
+            display: flex
+            justify-content: center
+            margin-top: 10px
+            margin-bottom: 20px
+
+        .entry-title
+            text-align: center
+            margin-bottom: 42px
+
+        .entry-meta
+            margin: 18px 0 28px 0
+
+            span
+                font-family: $second_font
+                font-weight: inherit
+                letter-spacing: 0.47px
+                font-style: italic
+                line-height: 22px
+                color: $c_primary
+
+            .byline
+                .author
+                    a
+                        font-family: inherit
+                        font-size: inherit
+                        color: inherit
+                        font-weight: inherit
+
+        .entry-content
+            p
+                font-family: $second_font
+                font-size: 15px
+                letter-spacing: 0.5px
+                line-height: 22px
+
+                a
+                    text-decoration: underline
+
+    .pagination
+        .nav-links
+            .prev,
+            .next
+                position: relative
+
+                &::before
+                    font-family: Font Awesome\ 5 Free
+                    -webkit-font-smoothing: antialiased
+                    display: inline-block
+                    font-style: normal
+                    font-weight: bold
+                    font-variant: normal
+                    text-rendering: auto
+                    line-height: 1
+                    opacity: .6
+                    font-size: 22px
+                    color: $c_primary
+                    transition: all .15s ease-in-out
+
+                &:hover
+                    &::before
+                        opacity: 1
+
+            .prev
+                padding: 0
+                margin-right: 10px
+
+                &::before
+                    content: '\f053'
+                    position: absolute
+                    left: 0
+
+            .next
+                padding: 0
+                margin-left: 10px
+
+                &::before
+                    content: '\f054'
+                    position: absolute
+                    right: 0
+
+            .page-numbers
+                color: $c-dark
+                line-height: 22px
+                font-weight: $f_weight_primary
+                font-size: 15px
+                letter-spacing: 4px
+                padding: 11px 16px
+
+                &.current
+                    background: #f5f4f2
+
+    // Navigation posts.
+    .navigation
+        &.post-navigation
+            display: flex
+
+            .nav-links
+                padding-top: 55px
+                width: 100%
+                display: flex
+
+                &::before
+                    content: ''
+                    position: absolute
+                    top: 0
+                    width: 100%
+                    height: 4px
+                    border-width: 1px 0 1px 0
+                    border-style: double
+                    border-color: $c_decor
+
+                .nav-subtitle
+                    font-family: $second_font
+                    font-size: 14px
+                    line-height: 20px
+                    color: $c_primary
+                    opacity: .8
+                    letter-spacing: 0.47px
+                    margin-bottom: .4rem
+                    display: block
+
+                .nav-title
+                    display: inline-flex
+                    font-size: 17px
+                    font-family: $primary_font
+                    letter-spacing: 0.57px
+                    line-height: 24px
+                    color: $c-dark
+
+                .nav-icon
+                    a
+                        height: 100%
+                        min-height: 75px
+                        max-height: 75px
+                        width: 45px
+                        position: relative
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        background: $c_main
+                        transition: all .15s ease-in-out
+
+                        &:hover
+                            background: $c-dark
+
+                        span
+                            line-height: normal
+
+                .nav-previous
+                    flex: 1 0 50%
+                    width: 50%
+                    margin-right: auto
+                    display: flex
+                    justify-content: start
+                    padding-right: 20px
+
+                    .nav-icon
+                        margin-right: 30px
+
+                .nav-next
+                    display: flex
+                    justify-content: flex-end
+                    flex: 1 0 50%
+                    width: 50%
+                    margin-left: auto
+                    text-align: end
+                    padding-right: 20px
+
+                    .nav-icon
+                        margin-left: 30px
+
+    // Comments
+    .comments-area
+        .comments-title
+            display: inline-block
+            margin-top: 20px
+            line-height: 32px
+
+
+        // User comments
+        .comment-list
+            position: relative
+            margin-top: 36px
+            padding-bottom: 47px
+
+            &::before
+                content: ''
+                position: absolute
+                bottom: 0
+                width: 100%
+                height: 4px
+                border-width: 1px 0 1px 0
+                border-style: double
+                border-color: $c_decor
+
+            .comment + .comment
+                margin-top: 58px
+
+            .comment
+                .comment-body
+                    .comment-author
+                        position: relative
+                        display: flex
+
+                        img
+                            position: absolute
+                            left: 0
+                            top: 0
+                            width: 61px
+                            height: 61px
+                            border-radius: 100%
+
+                    .comment-meta
+                        display: block
+                        padding-left: 85px
+
+                        .comment-author--info
+                            display: flex
+                            align-items: center
+
+                            .comment-author--name
+                                text-transform: capitalize
+                                letter-spacing: normal
+                                line-height: 28px
+
+                            .comment-author--reply
+                                position: relative
+                                padding: 0px 3px 2px 5px
+                                color: $c_light
+                                font-size: 12px
+                                text-transform: uppercase
+                                background: $c_main
+                                margin-left: 25px
+                                transition: all .15s ease-in-out
+
+                                &::before
+                                    content: ''
+                                    position: absolute
+                                    left: -21px
+                                    background: #4e4942
+                                    opacity: .3
+                                    width: 14px
+                                    height: 1px
+                                    top: 50%
+
+                                a
+                                    color: inherit
+                                    font-size: inherit
+                                    line-height: normal
+                                    font-weight: $f_weight_primary
+
+                                &:hover
+                                    background: $c_dark
+
+                            .comment-edit-link
+                                margin-left: 15px
+                                font-family: $second_font
+                                font-weight: $f_weight_primary
+                                font-style: italic
+                                font-size: 12px
+
+                                &:hover
+                                    text-decoration: underline
+
+                        .comment-author--date-posts
+                            margin-top: 10px
+                            display: block
+
+                            .comment-author--date
+                                font-family: $second_font
+                                letter-spacing: 0.47px
+                                font-style: italic
+                                font-size: 14px
+                                color: $c_primary
+                                opacity: .8
+
+                        .comment-author--description
+                            margin-top: 10px
+
+                            p
+                                margin-bottom: 0
+                                font-family: $second_font
+                                letter-spacing: 0.5px
+                                color: $c_primary
+                                font-size: 15px
+                                line-height: 22px
+                                font-weight: $f_weight_primary
+
+                .comment-awaiting-moderation
+                    font-family: $second_font
+                    font-style: italic
+                    font-size: 14px
+                    margin-bottom: -5px
+                    display: block
+                    letter-spacing: 0
+                    opacity: .5
+
+                .children
+                    margin-top: 58px
+                    margin-left: 58px
+
+        // Form comments
+        .comment-respond
+            position: relative
+            margin: 64px 0 70px 0
+
+            .comment-reply-title
+                small
+                    margin-left: 15px
+                    font-weight: $f_weight_primary
+
+                    &:hover
+                        text-decoration: underline
+
+            .comment-form
+                display: flex
+                flex-wrap: wrap
+                position: relative
+                padding-top: 12px
+
+                .logged-in-as
+                    margin-top: 30px
+
+                p, div
+                    display: block
+
+                .comment-form-author, .comment-form-email, .comment-form-comment
+                    input, textarea
+                        height: auto
+                        padding: 0 10px 7px 0
+                        width: 100%
+                        overflow: hidden
+                        border-color: rgba( $ca_primary, .3 )
+                        opacity: 1
+                        font-family: $second_font
+                        color: $c-dark
+                        border-width: 0px 0px 1px 0px
+                        transition: border-color .15s ease-in-out
+
+                        &::placeholder
+                            font-style: italic
+                            font-size: 12px
+                            letter-spacing: 1.6px
+                            opacity: 1
+                            color: $c_primary
+                            font-family: $second_font
+
+                        &:focus
+                            border-color: $c_primary
+
+                    textarea
+                        padding: 0
+                        margin-top: 15px
+                        resize: horizontal
+                        max-height: 350px
+
+                .comment-form-cookies-consent
+                    display: none
+
+                .comment-form-author
+                    padding-right: 22.5px
+
+                .comment-form-email
+                    padding-left: 22.5px
+
+                .comment-form-author, .comment-form-email
+                    flex: 1 0 50%
+                    width: 50%
+                    margin-top: 20px
+
+                .comment-form-comment
+                    order: 1
+                    flex: 1 0 100%
+
+                .comment-form-cookies-consent
+                    order: 2
+
+                .jeverly-fields, .form-submit
+                    order: 3
+
+                .logged-in-as
+                    margin-top: 7px
+                    display: block
+
+                    a
+                        font-family: $second_font
+                        font-weight: $f_weight_primary
+                        letter-spacing: normal
+
+                        &:hover
+                            text-decoration: underline
+
+                .jeverly-fields
+                    .comment-form-name
+                        flex: 1 0 50%
+                        width: 50%
+                        padding-right: 22.5px
+
+                        @include sm-m
+                            flex: 1 0 100%
+                            width: 100%
+
+                    .comment-form-email
+                        flex: 1 0 50%
+                        width: 50%
+                        padding-left: 22.5px
+
+                        @include sm-m
+                            flex: 1 0 100%
+                            width: 100%
+
+                    .comment-form-comment
+                        flex: 1 0 100%
+
+
+                .form-submit
+                    .submit
+                        position: relative
+                        display: block
+                        margin-top: 40px
+                        padding: 20px 40px
+                        background: $c_main
+                        border: 1px solid transparent
+                        text-transform: uppercase
+                        font-size: 12px
+                        font-weight: $f_weight_primary
+                        letter-spacing: 3.2px
+                        line-height: 26px
+                        border-radius: 0
+                        color: $c_light
+                        transition: all .15s ease-in-out
+
+                        &:hover
+                            background: transparent
+                            border-color: $c_main
+                            color: $c_main
+
+/**
+ * FINISH BLOCK ELEMENTS;
+ **********************************************************************/
+
+/************************************************************************
+ * 4.0 - START BLOCKQUOTES;
+ **/
+
+blockquote
+    position: relative
+
+    &.has-text-align-left
+        margin: 0 0 1rem 3.5rem
+        padding: 0 0 0 2.5rem
+
+        &::before
+            content: ''
+            position: absolute
+            left: 0
+            width: 1px
+            height: 100%
+            background: $c_main
+            opacity: .3
+
+    &.has-text-align-right
+        margin: 0 3.5rem 1rem 0
+        padding: 0 2.5rem 0 0
+
+        &::before
+            content: ''
+            position: absolute
+            right: 0
+            width: 1px
+            height: 100%
+            background: $c_main
+            opacity: .3
+
+    &.has-text-align-center
+        margin: 0 3.5rem 1rem
+        padding: 0 2.5rem 0
+
+    &.is-style-large
+        background: $c_main
+        color: $c_light
+
+        p
+            font-size: 19px!important
+            line-height: 26px!important
+            letter-spacing: 0.63px!important
+            font-weight: $f_weight_primary!important
+            color: $c_light!important
+            font-style: normal!important
+
+        cite
+            color: $c_light
+            font-family: $second_font
+            letter-spacing: 0.5px
+            opacity: .8
+            line-height: 24px
+            font-size: 15px
+            font-style: normal
+            font-weight: $f_weight_primary
+
+        &.has-text-align-left
+            margin: 0 0 1rem 3.5rem
+            padding: 1.9rem 1.9rem 1.9rem 6rem
+
+            &::before
+                content: ''
+                position: absolute
+                left: 75px
+                top: 50%
+                width: 1px
+                height: calc( 100% - 50px )
+                background: $c_light
+                opacity: .2
+                transform: translateY(-50%)
+
+            &::after
+                content: ''
+                position: absolute
+                width: 27px
+                height: 27px
+                left: calc( 75px / 3 )
+                top: 40px
+                background-image: url( '../imgs/quotes.png' )
+
+        &.has-text-align-right
+            margin: 0 3.5rem 1rem 0
+            padding: 1.9rem 6rem 1.9rem 1.9rem
+
+            &::before
+                content: ''
+                position: absolute
+                right: 75px
+                top: 50%
+                width: 1px
+                height: calc( 100% - 50px )
+                background: $c_light
+                opacity: .2
+                transform: translateY(-50%)
+
+            &::after
+                content: ''
+                position: absolute
+                width: 27px
+                height: 27px
+                right: calc( 75px / 3 )
+                top: 40px
+                background-image: url( '../imgs/quotes.png' )
+                transform: rotate(180deg)
+
+        &.has-text-align-center
+            margin: 0 3.5rem 1rem
+            padding: 0 2.5rem 0
+
+    &.wp-block-quote
+        font-size: 15px
+        letter-spacing: 0.5px
+        color: $c_primary
+        line-height: 24px
+
+        p
+            font-family: $primary_font
+            font-size: 19px
+            color: #1f3315
+            letter-spacing: 0.63px
+            line-height: 26px
+            font-weight: $f_weight_primary
+
+
+/**
+ * FINISH BLOCKQUOTES;
+ **********************************************************************/
+
+/************************************************************************
+ * 5.0 - START TABLE;
+ **/
+
+.wp-block-table
+    table
+        table-layout: fixed
+        width: 100%
+        background-color: transparent
+        border-spacing: 0
+        border-collapse: collapse
+        min-width: 100%
+
+        tr
+            border-top: 1px solid #c1cdb8
+            border-bottom: 1px solid #c1cdb8
+
+            &:first-child
+                td
+                    strong
+                        font-family: $primary_font
+                        font-size: 17px
+                        letter-spacing: normal
+
+            td
+                border-left: 1px solid #c1cdb8
+                border-right: 1px solid #c1cdb8
+                padding: 28px
+
+/**
+ * FINISH TABLE;
+ **********************************************************************/
+
+.custom-jeverly-p
+    line-height: 18px!important
+    letter-spacing: 3.2px!important
+
+    span, a, p
+        letter-spacing: inherit
+        line-height: inherit
+
+.wp-block-verse
+    position: relative
+    background: #2a5332
+    padding: 58px 60px
+    font-family: $primary_font
+    color: $c_light
+    font-size: 26px
+    line-height: 42.01px
+    letter-spacing: normal
+    font-weight: 400
+    overflow: hidden
+
+    &::before
+        content: ''
+        position: absolute
+        display: flex
+        width: calc( 100% - 44px )
+        height: calc( 100% - 44px )
+        transform: translate(-50%, -50%)
+        top: 50%
+        left: 50%
+        border: 1px solid $c_light
+
+
+.wp-block-social-links
+    li
+        border: 1px solid $c-dark
+        background: transparent!important
+        width: 51px
+        height: 51px
+        transition: all .15s ease-in-out
+
+        a
+            padding: 13px
+
+            svg
+                path
+                    fill: #202e23
+
+.wp-block-image .alignleft
+    margin: 0 2.5rem 0.9rem 0
+
+.wp-block-image .alignright
+    margin: 0 0 0.9rem 2.5rem
+
+
+img.alignright, img.alignleft
+    max-width: 270px
+
+img.alignright
+    margin: 0 0 0.9375rem 1.5625rem
+
+img.alignleft
+    margin: 0 1.5625rem 0.9375rem 0
+
+.alignleft
+    margin: 0 1.25rem 1.25rem 0
+
+.alignright
+    margin: 0 0 1.25rem 1.25rem
+
+.aligncenter
+    display: block
+    margin: 0 auto
+    clear: both
+
+.comment-list
+    margin: 1.875rem 0 0
+
+.comment-list > li > .comment-body,
+.comment-list > li > .children .comment-body
+    margin-top: 1.875rem
+    padding-top: 1.875rem
+
+.comment-list .bypostauthor .comment-body
+    padding: 1.875rem 1.875rem 1.875rem 7.6875rem
+
+.comment-list > li > .children .bypostauthor .comment-body
+    padding: 1.875rem 1.875rem 1.875rem 5.875rem
+
+.comment-list > li > .comment-body .comment-author .avatar,
+.comment-list > li > .children .comment-body .comment-author .avatar
+    top: 30px
+
+.comment-list > li.bypostauthor > .comment-body .comment-author .avatar,
+.comment-list > li > .children li.bypostauthor > .comment-body .comment-author .avatar
+    top: 30px
+    left: 30px
+
+.entry-caption
+    font-size: 0.875rem
+    padding: 1.25rem
+
+.wp-caption
+    margin-bottom: 2rem
+
+.wp-caption .wp-caption-text
+    padding: 0.625rem 1.25rem
+
+.wp-caption.alignright, .wp-caption.alignleft
+    max-width: 270px
+
+.wp-caption.alignright
+    margin: 0 0 0.9375rem 1.5625rem
+
+.wp-caption.alignleft
+    margin: 0 1.5625rem 0.9375rem 0
+
+.wp-caption img[class*="wp-image-"]
+    display: block
+    margin-left: auto
+    margin-right: auto
+
+.gallery
+    margin: 0 0 2rem
+
+.gallery .gallery-caption
+    font-size: 0.8125rem
+    padding: 0.3125rem
+
+.gallery.gallery-columns-4 .gallery-caption,
+.gallery.gallery-columns-5 .gallery-caption
+    display: block
+
+.gallery
+    margin-bottom: 1.5em
+    display: grid
+    grid-gap: 1.5em
+
+
+.gallery-item
+    display: inline-block
+    text-align: center
+    width: 100%
+
+
+.gallery-columns-2
+    grid-template-columns: repeat(2, 1fr)
+
+
+.gallery-columns-3
+    grid-template-columns: repeat(3, 1fr)
+
+
+.gallery-columns-4
+    grid-template-columns: repeat(4, 1fr)
+
+
+.gallery-columns-5
+    grid-template-columns: repeat(5, 1fr)
+
+
+.gallery-columns-6
+    grid-template-columns: repeat(6, 1fr)
+
+
+.gallery-columns-7
+    grid-template-columns: repeat(7, 1fr)
+
+
+.gallery-columns-8
+    grid-template-columns: repeat(8, 1fr)
+
+
+.gallery-columns-9
+    grid-template-columns: repeat(9, 1fr)
+
+
+.gallery-caption
+    display: block
+
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer
+    display: none
+
+.infinity-end.neverending .site-footer
+    display: block
+
+.hentry .mejs-container
+    margin: 0 0 2rem
+
+/************************************************************************
+ * 5.0 - FOOTER;
+ **/
+
+.site-footer
+    display: flex
+    position: relative
+    padding-top: 45px
+    margin-bottom: 74px
+    width: 100%
+
+    &::before
+        content: ''
+        position: absolute
+        top: 0
+        width: 100%
+        height: 4px
+        border-width: 1px 0 1px 0
+        border-style: double
+        border-color: $c_decor
+
+    .site-info
+        display: flex
+        position: absolute
+        left: 0
+        width: 100%
+
+        img
+            top: 4px
+            position: relative
+
+    .site-contact
+        position: relative
+        padding-left: 45px
+        display: flex
+        width: 100%
+        justify-content: space-between
+        align-items: center
+
+        .site-info--social
+            &-items
+                display: flex
+
+                a
+                    color: $c_primary
+                    font-size: 11px
+                    font-weight: $f_weight_primary
+                    text-transform: uppercase
+                    letter-spacing: 2.93px
+                    line-height: normal
+
+                li + li
+                    margin-left: 30px
+
+        .site-info--subs
+            position: relative
+            display: flex
+            align-items: center
+
+            img
+                top: 0
+                margin-right: 13px
+
+            .success-mail,
+            .fail-mail
+                position: absolute
+                bottom: -25px
+
+            .success-mail
+                color: green
+
+            .fail-mail
+                color: red
+
+            form
+                position: relative
+                display: flex
+
+                input
+                    height: auto
+                    padding: 0 110px 7px 0
+                    width: 100%
+                    overflow: hidden
+                    border-color: rgba( $ca_primary, .3 )
+                    opacity: 1
+                    font-family: $second_font
+                    color: $c-dark
+                    border-width: 0 0 1px 0
+                    -webkit-transition: border-color .15s ease-in-out
+                    transition: border-color .15s ease-in-out
+
+                    &:focus
+                        border-color: $c_primary
+
+                    &[type="submit"]
+                        position: absolute
+                        right: 0
+                        top: -5px
+                        width: fit-content
+                        background: transparent
+                        font-family: $primary_font
+                        padding-right: 0
+                        font-size: 14px
+                        font-weight: 700
+                        border: none
+                        letter-spacing: 2.24px
+                        border-color: rgba( $ca_primary, .3 )
+
+
+.edit-link
+    margin-top: 30px
+    display: block
+    text-transform: uppercase
+
+    &:hover
+        text-decoration: underline
+
+
+/**
+ * FINISH FOOTER;
+ **********************************************************************/
+
+.bypostauthor
+    display: block

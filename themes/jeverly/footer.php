@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -10,22 +11,37 @@
  */
 
 ?>
+    <div class="jeverly-container">
+        <div class="javerly-frontier">
+            <footer id="colophon" class="site-footer">
+                <div class="site-info">
+                    <?php
+                        $img_url = get_site_icon_url(30);
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'jeverly' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'jeverly' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'jeverly' ), 'jeverly', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+                        if ( ! empty( $img_url ) ) {
+                    ?>
+                        <div>
+                            <?php
+                                $rm_image_id = attachment_url_to_postid( $img_url );
+
+                                if ( $rm_image_id) {
+                                    // Using wp_get_attachment_image should return your alt text added in the WordPress admin.
+                                    echo wp_get_attachment_image( $rm_image_id, 'full' );
+                                } else {
+                                    // Fallback in case it's not found.
+                                    echo '<img src="' . $img_url . '" alt="" />';
+                                }
+                            ?>
+                        </div>
+                    <?php } ?>
+
+                    <div class="site-contact">
+                        <?php dynamic_sidebar( 'footer_widgets' ); ?>
+                    </div>
+                </div><!-- .site-info -->
+            </footer><!-- #colophon -->
+        </div>
+    </div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

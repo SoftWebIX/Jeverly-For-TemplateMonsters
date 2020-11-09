@@ -1,0 +1,53 @@
+@import 'mixins', 'colors', 'typography'
+
+.block-editor__typewriter
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+        font-weight: $f_weight_primary
+        font-family: $primary_font
+        color: $c-dark
+        line-height: normal
+
+    small
+        font-family: $second_font
+        font-weight: $f_weight_primary
+        font-style: italic
+        font-size: 12px
+
+    h1
+        font-size: $h1
+        margin-bottom: 27px
+
+    h2
+        font-size: $h2
+        margin-bottom: 25px
+
+    h3
+        font-size: $h3
+        margin-bottom: 26px
+
+    h4
+        font-size: $h4
+        margin-bottom: 21px
+
+    h5
+        font-size: $h5
+        margin-bottom: 17px
+
+    h6
+        font-size: $h6
+        margin-bottom: 13px
+
+    p, span, div
+        font-weight: $f_weight_primary
+        font-family: $primary_font
+        letter-spacing: $f_spacing_primary
+        font-size: $body_size
+        line-height: 22px
+
+    b, strong
+        font-weight: bold

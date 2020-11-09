@@ -1,4 +1,23 @@
 <?php
+
+if ( ! function_exists( 'jeverly_the_posts_pagination' ) ) :
+
+    /**
+     * Display navigation to next/previous set of posts when applicable.
+     */
+    function jeverly_the_posts_pagination() {
+    
+        // Previous/next posts navigation
+        the_posts_pagination( array (
+            'prev_text'          => '<span class="screen-reader-text">' . esc_html__( 'Previous Page', 'jeverly' ) . '</span>',
+            'next_text'          => '<span class="screen-reader-text">' . esc_html__( 'Next Page', 'jeverly' ) . '</span>',
+            'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'jeverly' ) . ' </span>',
+        ) );
+    
+    }
+
+endif;
+
 /**
  * Custom template tags for this theme
  *
@@ -13,6 +32,7 @@ if ( ! function_exists( 'jeverly_posted_on' ) ) :
 	 */
 	function jeverly_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
@@ -20,15 +40,14 @@ if ( ! function_exists( 'jeverly_posted_on' ) ) :
 		$time_string = sprintf(
 			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
+			esc_html( get_the_date( 'd F' ) ),
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
-			esc_html( get_the_modified_date() )
+			esc_html( get_the_modified_date( 'd F' ) )
 		);
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'jeverly' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			'<span>' . $time_string . ', </span>'
 		);
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
